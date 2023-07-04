@@ -5,30 +5,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Rock Papers Scissors!</title>
+    <meta name="description" content="play rock paper scissors against the computer">
+    <meta name="theme-color" content="#adefd1ff">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Rock Paper Scissors</title>
+    <link href="/assets/favicon/favicon.ico" rel="icon" type="image/x-icon">
 </head>
-<header>Rock Paper Scissors</header>
-
-<div id="icons">
-    <div class="buttons">
-        <button id="rock"><img src="assets/images/rock.jpg" alt=""></button>
-        <button id="paper"><img src="assets/images/paper.jpg" alt=""></button>
-        <button id="scissors"><img src="assets/images/scissors.jpg" alt=""></button>
-        
-    </div>
-</div>
-<div id="scores">
-    <h2>Scores</h2>
-    <div id="player_score">Player Score 0</div>
-    <div id="computer_score">Computer Score 0</div>
-</div>
-<button id="restart"> Play Again!</button>
-<script src="assets/js/script.js"></script>
 
 <body>
+    <!--Header name of game and icons-->
+    <header class="header">
+        <h1>Rock Paper Scissors! <i class="fa-regular fa-hand-back-fist"></i>
+            <i class="fa-regular fa-hand"></i> <i class="fa-regular fa-hand-scissors"></i></h1>
+    </header>
+    <div id="game-container">
+        <!--section to display the previous pick of the user and the computer-->
+        <div id="results">
+            <div id="player-choice" class="last-pick">
+                <p>Your Pick</p>
+            </div>
+            <div id="cpu-choice" class="last-pick">
+                <p>Computer Pick</p>
+            </div>
+        </div>
+        <!--message section displays random message after each round-->
+        <div id="message">
+            <p>Rock Beats Scissors Beats Paper Beats Rock </p>
+        </div>
+        <!--scoreboard leeps track of player and compuetr score until either  reaches 5-->
+        <div id="scores">
+           
+            <span id="player-score" class="score"> Player Score 0</span>
+            <span id="cpu-score" class="score"> omputer Score 0</span>
+        </div>
+        <!--the choice buttons Rock paper scissors-->
+        <div id="buttons">
 
+            <button id="rock" class="hand" aria-label="choose rock" data-choice="rock"> <i class="fa-solid fa-hand-back-fist"
+                    style="color: #00203fff;"></i>
+            </button>
+            <button id="paper" class="hand" aria-label="choose paper" data-choice="paper"> <i class="fa-solid fa-hand"
+                    style="color: #00203fff;"></i>
+            </button>
+            <button id="scissors" class="hand" aria-label="choose scissors" data-choice="scissors"> <i class="fa-solid fa-hand-scissors"
+                    style="color: #00203fff;"></i>
+            </button>
+        </div>
+        <!--Simple instructions to choose from one of the choices-->
+        <div id="choose">
+            <p>Choose Rock Paper or scissors</p>
+        </div>
+        <!--restart button resets the game -->
+        <div id="restart">
+            <button id="restart-button">Play Again?</button>
+        </div>
+    </div>
+    <script src="assets/js/script.js"></script>
+    <script src="https://kit.fontawesome.com/b75fe46682.js" crossorigin="anonymous"></script>
 </body>
-<script src="https://kit.fontawesome.com/b75fe46682.js" crossorigin="anonymous"></script>
 
 </html>

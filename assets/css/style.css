@@ -1,9 +1,368 @@
-#icons {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-evenly;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Codystar&family=Press+Start+2P&display=swap');
+
+
+* {
+    margin: 0;
+
+    
+
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #00203fff;
+}
+
+.header {
+    background-color: #00203fff;
+    text-align: left;
     width: 100%;
-    height:400px;
+    height: 4vh;
+}
+
+.header h1 {
+    margin-top: 10px;
+    text-align: center;
+    color: #adefd1ff;
+    font-size: 2rem ;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 200;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+}
+
+/* Displays the previous pick from both the player and the computer */
+
+#results {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.last-pick {
+    background-color: grey;
+    margin: 2%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border: 10px solid #adefd1ff;
+    font-size: 100px;
+    position: relative;
+}
+
+/* ensures the icons stays in the center of the last pick display */
+
+.last-pick p {
+    text-align: center;
+    color: #00203fff;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.last-pick i {
+    font-size: 90%;
+}
+
+/* Displays a random message after each round and at the end of the game */
+
+#message {
+    font-family:'Press Start 2P', nineteen_ninety_sevenregular, Arial, Helvetica, sans-serif;
+    clear: both;
+    color: #adefd1ff;
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    width: 400px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 3px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+/* Score board displays the player score and computer score*/
+
+#scores {
+    font-size: 1rem;
+    font-family: 'Codystar', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 900;
+    clear: both;
+    color: #adefd1ff;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+    width: 400px;
+    height: 50px;
+    border: 5px dotted #adefd1ff;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+#player-score {
+    margin-top: 5px;
+    margin-left: 10%;
+}
+
+#cpu-score {
+    margin-top: 5px;
+    margin-right: 10%;
+}
+
+/* Prompts the player to Choose either rock paper or scissors */
+
+#choose {
+    text-align: center;
+    font-weight: 100;
+}
+
+#choose p {
+    font-family: 'Press Start 2P', nineteen_ninety_sevenregular, Arial, Helvetica, sans-serif;
+    margin-top: 5px;
+    font-weight: 200;
+    letter-spacing: 2px;
+    color: #adefd1ff;
+}
+
+/* The buttons to choose rock paper scissors and play the game */
+#buttons {
+    display: flex;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: #adefd1ff;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+    cursor: pointer; 
+}
+
+/* code for shake affect found online on codepen (added shake to simulate playing the game in real life */
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-2px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(2px, 0, 0);
+    }
+}
+
+/* the rock paper scissors buttons */
+
+.hand {
+    margin: 10px 20px;
+    justify-content: space-around;
+    background-color: grey;
+    border-radius: 50%;
+    border: 10px solid #adefd1ff;
+    color: black;
+    width: 130px;
+    height: 130px;
+}
+.hand i {
+    font-size: 1.9rem;
+}
+
+/* Button to reset the game after the rounds are complete, hidden until the end of the game */
+
+#restart {
+    display: flex;
+    justify-content: center;
+}
+
+#restart button {
+    display: none;
+    background-color: grey;
+    border: 5px solid #adefd1ff;
+    border-radius: 10%;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 1%;
+}
+
+/* Media styles for mobile devices */
+
+@media (max-width: 426px) {
+    .header {
+        height: 3vh;
+    }
+
+    .header h1 {
+        font-size: 18px;
+        text-align: center;
+        letter-spacing: 2px;
+        font-weight: 500;
+    }
+
+    #results {
+        flex-direction: column;
+        margin: auto;
+    }
+
+    #message {
+        width: 370px;
+        height: 15px;
+        margin-top: 10px;
+        font-size: 12px;
+        }
+
+    .last-pick {
+        font-size: 50px;
+        justify-content: center;
+        width: 35%;
+        height: 120px;
+        margin: auto;
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    #scores {
+        text-align: center;
+        width: 350px;
+        height: 50px;
+        font-size: 0.9rem;
+    }
+
+    #player-score {
+        margin-right: 25%;
+        display: block;
+    }
+
+    .hand {
+        justify-content: space-around;
+        width: 100px;
+        height: 100px;
+        margin-top: 10px;
+    }
+
+    #choose p {
+        font-size: 12px;
+    }
+
+    #restart {
+        margin-top: 15px;
+    }
+}
+
+/* media styles for smaller mobile devices */
+
+@media (max-width: 321px) {
+    * {
+        max-height: 100vh;
+        max-width: 100vw;
+    }
+
+    .header h1 {
+        font-size: 14px;
+    }
+
+    #scores {
+        margin-bottom: 10px;
+        margin: auto;
+        height: 50px;
+        width: 300px;
+        font-size: 14px;
+    }
+    #message {
+        width: 300px;
+        font-size: 12px;
+    }
+
+    .last-pick {
+        width: 85px;
+        height: 85px;
+    }
+
+    .last-pick p {
+        font-size: 15px;
+    }
+
+    .hand {
+        justify-content: space-around;
+        margin: auto;
+        width: 80px;
+        height: 80px;
+    }
+
+    #choose p {
+        font-size: 12px;
+    }
+}
+
+/* Media styles for mobile devices in landscape orientation */
+@media only screen and (max-height: 420px) and (orientation: landscape) {
+
+    .header h1 {
+        font-size: 20px;
+        text-align: center;
+        letter-spacing: 2px;
+        font-weight: 500;
+    }
+
+    #message {
+        height: 20px;
+        margin-top: 5px;
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    #scores {
+        margin: auto;
+        height: 40px;
+        width: 300px;
+        font-size: 11px;
+    }
+
+    .last-pick {
+        width: 85px;
+        height: 85px;
+        font-size: 30px;
+    }
+
+    .last-pick p {
+        font-size: 12px;
+    }
+
+    #results {
+        flex-direction: row;
+        margin-top: 2px;
+    }
+
+    .hand {
+        width: 80px;
+        height: 80px;
+        font-size: 30px;
+    }
+
+    #choose {
+        font-size: 10px;
+    }
 }

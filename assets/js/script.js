@@ -39,6 +39,13 @@ const MAX_MOVES = 5;
 let playerScore = 0;
 let computerScore = 0;
 
+// Function to render the player or computer choice
+function renderChoice(isPlayer, choice) {
+  const element = isPlayer ? playerPick : computerPick;
+  element.innerHTML = choicesMap[choice];
+  console.log(choice);
+}
+
 // Function to handle computer choice
 function computerTurn() {
   let cTurn = Math.floor(Math.random() * choices.length);
@@ -47,16 +54,10 @@ function computerTurn() {
   return computerChoice;
 }
 
-// Function to pick a message to display
-function pickMessage(win) {
-  const messageList = win ? WIN_MESSAGES : LOSE_MESSAGES;
-  const index = Math.floor(Math.random() * messageList.length);
-  return messageList[index];
-}
-
 // Function to handle gameplay
+
 function gamePlay(event) {
-  const playerChoice = event.target.dataset.choice;
+  const playerChoice = this.dataset.choice;
   const computerChoice = computerTurn();
   renderChoice(true, playerChoice);
   renderChoice(false, computerChoice);
@@ -65,13 +66,16 @@ function gamePlay(event) {
   checkIfGameEnd();
 }
 
-// Function to render the player or computer choice
-function renderChoice(isPlayer, choice) {
-  const element = isPlayer ? playerPick : computerPick;
-  element.innerHTML = choicesMap[choice];
+
+// Function to pick a message to display
+function pickMessage(win) {
+  const messageList = win ? WIN_MESSAGES : LOSE_MESSAGES;
+  const index = Math.floor(Math.random() * messageList.length);
+  return messageList[index];
 }
 
 // Function to check the result of the move
+
 function checkMoveResult(playerChoice, computerChoice) {
   if (playerChoice === computerChoice) {
     return "draw";
@@ -87,6 +91,7 @@ function checkMoveResult(playerChoice, computerChoice) {
 }
 
 // Function to render the move result
+
 function renderMoveResult(moveResult) {
   if (moveResult === "win") {
     handleWin();
@@ -98,6 +103,7 @@ function renderMoveResult(moveResult) {
 }
 
 // Function to handle the player winning the round
+
 function handleWin() {
   const winMessage = pickMessage(true);
   message.textContent = winMessage;
@@ -109,6 +115,7 @@ function handleWin() {
 }
 
 // Function to handle the player losing the round
+
 function handleLoss() {
   const loseMessage = pickMessage(false);
   message.textContent = loseMessage;
@@ -120,6 +127,7 @@ function handleLoss() {
 }
 
 // Function to handle a draw
+
 function handleDraw() {
   message.textContent = "A Draw! Everybody Loses!";
   playerPick.style.borderColor = "black";
@@ -128,6 +136,7 @@ function handleDraw() {
 }
 
 // Function to check if the game has ended
+
 function checkIfGameEnd() {
   if (playerScore === MAX_MOVES || computerScore === MAX_MOVES) {
     endGame();
@@ -135,6 +144,7 @@ function checkIfGameEnd() {
 }
 
 // Function to end the game
+
 function endGame() {
   restartGame.style.display = "block";
   disableButtons();
@@ -149,6 +159,7 @@ function endGame() {
 }
 
 // Function to disable the choice buttons
+
 function disableButtons() {
   rockBtn.disabled = true;
   paperBtn.disabled = true;
@@ -156,6 +167,7 @@ function disableButtons() {
 }
 
 // Function to reset the game
+
 function resetGame() {
   playerScore = 0;
   computerScore = 0;
@@ -174,9 +186,11 @@ function resetGame() {
 }
 
 // Event listeners for choice buttons
+
 document.querySelectorAll(".hand").forEach((element) => {
   element.addEventListener("click", gamePlay);
 });
 
 // Event listener for the button to play again
+
 restartGame.addEventListener("click", resetGame);
